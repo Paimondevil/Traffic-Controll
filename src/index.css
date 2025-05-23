@@ -1,0 +1,247 @@
+.rm-link {
+    display: inline-block;
+    text-align: end;
+    width: 100%; 
+    padding-top: 10px;
+    padding-right: 50px;
+
+}
+.meta {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.time {
+    margin-right: 50px;
+}
+
+.info {
+    /* margin: 20px; */
+    font-family: Arial, sans-serif;
+}
+
+h3 {
+    color: #333;
+}
+
+.road-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.road-table th, .road-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.road-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #555;
+}
+
+.road-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.road-table tr:hover {
+    background-color: #e6f7ff;
+}
+
+.road-table td {
+    color: #555;
+}
+
+/* GRID ROADS  */
+
+.grid {
+    background: rgba(115, 255, 0, 0.226);
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 80%;
+    height: 65vh;
+    margin: 0 auto;
+}
+
+.light {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.light::before {
+    content: "";
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* background: red; */
+    position: absolute;
+    z-index: 100;
+}
+
+.green::before {
+    background: green;
+}
+
+.red::before {
+    background: red;
+}
+
+.road {
+    width: 100%;
+    height: 100%;
+    background: grey;
+    position: relative;
+}
+
+.road::before {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    /* background-color: red; */
+    height: 5px;
+    border: 5px solid yellow;
+    border-style: dashed;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.greenroad::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 100, 0, 0.5);
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.crosswalk {
+    width: 25px;
+    height: 100%;
+    background-color: grey;
+    position: absolute;
+    right: 0;
+    z-index: 1000;
+}
+.crosswalk::before {
+    content: "";
+    display: inline-block;
+    height: 95%;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    border: 10px dashed white;
+}
+
+/* ROADS */
+
+.road1 {
+    /* background-color: purple; */
+    grid-row: 2 /3;  
+    grid-column: 1/ 2;
+}
+.road2 {
+    /* background-color: yellow; */
+    grid-row: 1 / 2;
+    grid-column: 2 / 3; 
+}
+
+
+.road2 .crosswalk, .road4 .crosswalk{
+    width: 100%;
+    height: 25px;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.road2 .crosswalk::before, .road4 .crosswalk::before{
+    width: 95%;
+    height: 0%;
+    bottom: 0;
+    left: 10px;
+    top: 0;
+}
+
+.road3 {
+    /* background-color: blue; */
+    grid-row: 2 / 3;
+    grid-column: 3 / 4;
+}
+
+.road3 .crosswalk {
+    left: 0;
+}
+
+.road4 {
+    /* background-color: green; */
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+}
+
+.road4 .crosswalk {
+    top: 0;
+}
+
+.road2::before, .road4::before {
+    transform: rotate(90deg);
+}
+.middle { 
+    /* background-color: cyan; */
+    grid-row:   2 / 3;
+    grid-column: 2/ 3;
+}
+
+.middle::before {
+    border: none;
+}
+
+
+/* LIGHTS */
+
+.light1 { 
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+}
+
+.light1::before {
+    bottom: 0;
+    right: 0;
+}
+
+.light2 { 
+    grid-row: 1 / 2;
+    grid-column: 3 / 4;
+}
+
+.light2::before {
+    bottom: 0;
+    left: 0;
+}
+
+.light3 {
+    grid-row: 3 / 4;
+    grid-column: 3 / 4;
+ }
+
+.light3::before {
+    left: 0;
+    top: 0;
+}
+
+.light4 {
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+}
+
+.light4::before {
+    top: 0;
+    right: 0;
+
+}
